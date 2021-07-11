@@ -3,8 +3,8 @@ info:
   title: FamilyCash
   version: "1.0"
 servers:
-  - url: https://family-cash-api.heroku.com/v1
-  - url: http://localhost:3000/v1
+  - url: https://family-cash-api.heroku.com/api/v1
+  - url: http://localhost:3000/api/v1
 tags:
   - name: transactions
     description: Operations to manage transactions
