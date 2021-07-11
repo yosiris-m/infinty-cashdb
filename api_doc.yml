@@ -1,0 +1,91 @@
+openapi: "3.0.2"
+info:
+  title: FamilyCash
+  version: "1.0"
+servers:
+  - url: https://family-cash-api.heroku.com/v1
+  - url: http://localhost:3000/v1
+tags:
+  - name: transactions
+    description: Operations to manage transactions
+paths:
+  /transaction:
+    post:
+      tags:
+        - transactions
+      summary: Add a new transaction
+      requestBody:
+        required: true
+        description: Transaction object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: integer
+                  format: int64
+                date:
+                  type: string
+                  format: date-time
+                categoryId:
+                  type: integer
+                  format: int64
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+    get:
+      tags:
+        - transactions
+      summary: Finds Transactions by a date range
+      description: A date range must be provided
+      parameters:
+        - name: from
+          in: query
+          description: Date from
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2021-01-01"
+        - name: to
+          in: query
+          description: Date to
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2021-01-31"
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Transaction"
+components:
+  schemas:
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 568
+        amount:
+          type: integer
+          format: int64
+          example: 156
+        date:
+          type: string
+          format: date-time
+        categoryId:
+          type: integer
+          format: int64
+          example: 34
