@@ -1,10 +1,9 @@
 const { client } = require("../db");
 
-// TODO implement categoryId
 exports.create = ({ amount, date, categoryId }) => {
   const text =
-    "INSERT INTO transactions(amount, date) VALUES($1, $2) RETURNING *";
-  const values = [amount, date];
+    "INSERT INTO transactions(amount, date, fk_category_id) VALUES($1, $2, $3) RETURNING *";
+  const values = [amount, date, categoryId];
 
   console.log("Creating a new transaction...");
 
@@ -16,7 +15,13 @@ exports.create = ({ amount, date, categoryId }) => {
 };
 
 exports.find = ({ from, to }) => {
-  const text = "SELECT * FROM transactions WHERE date BETWEEN $1 AND $2";
+  const text = `
+SELECT tran.id, date, amount, cat.label AS category
+FROM transactions AS tran
+INNER JOIN categories AS cat ON tran.fk_category_id = cat.id
+WHERE date BETWEEN $1 AND $2
+ORDER BY tran.date DESC
+`;
   const values = [from, to];
   console.log("Finding transactions...");
   console.log("values", values);
