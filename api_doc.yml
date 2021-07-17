@@ -8,6 +8,8 @@ servers:
 tags:
   - name: transactions
     description: Operations to manage transactions
+  - name: categories
+    description: Operations to manage categories
 paths:
   /transaction:
     post:
@@ -69,6 +71,41 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Transaction"
+  /categories:
+    post:
+      tags:
+        - categories
+      summary: Add a new category
+      requestBody:
+        required: true
+        description: Category object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                label:
+                  type: string
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Category"
+    get:
+      tags:
+        - categories
+      summary: Finds all categories
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
 components:
   schemas:
     Transaction:
@@ -89,3 +126,13 @@ components:
           type: integer
           format: int64
           example: 34
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 34
+        label:
+          type: string
+          example: Grocery
