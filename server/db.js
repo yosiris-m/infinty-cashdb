@@ -1,11 +1,14 @@
 const { Client } = require("pg");
 
 const connectionString =
-  process.env.CONN_STRING ||
+  process.env.DATABASE_URL ||
   "postgresql://postgres:123456@localhost:5432/familycash";
 
 const client = new Client({
   connectionString,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 // Set the node process time zone to UTC

@@ -22,7 +22,7 @@ The API documentation is defined using OpenAPI v3.0. More info [here](./api_doc.
 
 ## Environment Variables
 
-| Name        | Description                              | Default value                                          |
-| ----------- | ---------------------------------------- | ------------------------------------------------------ |
-| PORT        | The HTTP server will listen in this port | 3000                                                   |
-| CONN_STRING | The connection string for the data base  | postgresql://postgres:123456@localhost:5432/familycash |
+| Name         | Description                              | Default value                                          |
+| ------------ | ---------------------------------------- | ------------------------------------------------------ |
+| PORT         | The HTTP server will listen in this port | 3000                                                   |
+| DATABASE_URL | The connection string for the data base  | postgresql://postgres:123456@localhost:5432/familycash |
