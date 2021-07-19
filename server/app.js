@@ -5,7 +5,7 @@ const transactions = require("./routes/transaction");
 const categories = require("./routes/category");
 const db = require("./db");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 db.connect();
