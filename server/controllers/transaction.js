@@ -1,8 +1,18 @@
 const transactions = require("../models/transaction");
 
 exports.find = (req, res) => {
+  const { from, to } = req.query;
+
+  if (!from) {
+    return res.status(400).json({ error: "from param is required" });
+  }
+
+  if (!to) {
+    return res.status(400).json({ error: "to param is required" });
+  }
+
   transactions
-    .find(req.query)
+    .find({ from, to })
     .then((rows) => {
       res.json(rows);
     })
