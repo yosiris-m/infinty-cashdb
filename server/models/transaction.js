@@ -16,11 +16,16 @@ exports.create = ({ amount, date, categoryId }) => {
 
 exports.find = ({ from, to }) => {
   const text = `
-SELECT tran.id, date, amount, cat.label AS category
-FROM transactions AS tran
-INNER JOIN categories AS cat ON tran.fk_category_id = cat.id
+SELECT
+  transactions.id,
+  transactions.date,
+  transactions.amount,
+  categories.label AS category,
+  categories.type
+FROM transactions
+INNER JOIN categories ON transactions.fk_category_id = categories.id
 WHERE date BETWEEN $1 AND $2
-ORDER BY tran.date DESC
+ORDER BY transactions.date DESC
 `;
   const values = [from, to];
   console.log("Finding transactions...");

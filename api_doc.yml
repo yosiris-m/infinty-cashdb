@@ -86,6 +86,8 @@ paths:
               properties:
                 label:
                   type: string
+                type:
+                  type: string
       responses:
         "201":
           description: Created

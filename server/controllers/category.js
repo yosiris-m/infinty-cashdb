@@ -15,7 +15,15 @@ exports.find = (req, res) => {
 exports.create = (req, res) => {
   const data = {
     label: req.body.label,
+    type: req.body.type,
   };
+
+  if (data.type !== "expense" && data.type !== "income") {
+    res
+      .status(400)
+      .json({ message: "invalid type, must be 'income' or 'expense'" });
+  }
+
   categories
     .create(data)
     .then((createdCategory) => {

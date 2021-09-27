@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS categories
 (
     id serial NOT NULL,
     label character varying COLLATE pg_catalog."default" NOT NULL,
+    type character varying COLLATE pg_catalog."default",
     CONSTRAINT categories_pkey PRIMARY KEY (id),
     CONSTRAINT label_unique UNIQUE (label)
 )
