@@ -21,7 +21,8 @@ SELECT
   transactions.date,
   transactions.amount,
   categories.label AS category,
-  categories.type
+  categories.type,
+  categories.image
 FROM transactions
 INNER JOIN categories ON transactions.fk_category_id = categories.id
 WHERE date BETWEEN $1 AND $2
