@@ -1,7 +1,20 @@
-INSERT INTO categories(label, type)
+INSERT INTO categories(label, type, image)
 VALUES
-  ('Other incomes', 'income'),
-  ('Pharmacy', 'expense'),
-  ('Car', 'expense'),
-  ('Kids', 'expense'),
-  ('Other expenses', 'expense');
+  ('Grocery',	'expense',	'fas fa-shopping-cart'),
+  ('Salary',	'income',	'fas fa-money-check-alt'),
+  ('Car',	'expense',	'fas fa-car'),
+  ('Pharmacy',	'expense',	'fas fa-capsules'),
+  ('Food',	'expense',	'fas fa-utensils'),
+  ('Renting',	'income',	'fas fa-dollar-sign'),
+  ('House',	'expense',	'fas fa-home'),
+  ('Birds',	'expense',	'fas fa-crow'),
+  ('University',	'expense',	'fas fa-university'),
+  ('Other', 'expenses',	'fas fa-question-circle'),
+  ('Film',	'expense',	'fas fa-film'),
+  ('Transport',	'expense',	'fas fa-bus'),
+  ('Gifts',	'expense',	'fas fa-gift'),
+  ('Mobile',	'expense',	'fas fa-mobile-alt'),
+  ('Wifi',	'expense',	'fas fa-wifi'),
+  ('Flights',	'expense',	'fas fa-plane'),
+  ('Hotel',	'expense',	'fas fa-hotel'),
+  ('Dog',	'expense',	'fas fa-dog');

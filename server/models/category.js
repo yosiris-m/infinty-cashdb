@@ -1,8 +1,9 @@
 const { client } = require("../db");
 
-exports.create = ({ label, type }) => {
-  const text = "INSERT INTO categories(label, type) VALUES($1, $2) RETURNING *";
-  const values = [label, type];
+exports.create = ({ label, type, image }) => {
+  const text =
+    "INSERT INTO categories(label, type, image) VALUES($1, $2, $3) RETURNING *";
+  const values = [label, type, image];
   return client.query(text, values).then((res) => {
     console.log("Category created correctly");
     const createdCategory = res.rows[0];

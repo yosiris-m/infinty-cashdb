@@ -16,6 +16,7 @@ exports.create = (req, res) => {
   const data = {
     label: req.body.label,
     type: req.body.type,
+    image: req.body.image,
   };
 
   if (data.type !== "expense" && data.type !== "income") {

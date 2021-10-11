@@ -4,10 +4,11 @@ CREATE TABLE IF NOT EXISTS categories
 (
     id serial NOT NULL,
     label character varying COLLATE pg_catalog."default" NOT NULL,
-    type character varying COLLATE pg_catalog."default",
+    type character varying COLLATE pg_catalog."default" NOT NULL,
+    image character varying COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT categories_pkey PRIMARY KEY (id),
     CONSTRAINT label_unique UNIQUE (label)
-)
+);
 
 -- Table: transactions
 
@@ -23,4 +24,4 @@ CREATE TABLE IF NOT EXISTS transactions
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         NOT VALID
-)
+);
