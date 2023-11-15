@@ -6,7 +6,7 @@ const categories = require("./routes/category");
 const chart = require("./routes/chart");
 const db = require("./db");
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 db.connect();
