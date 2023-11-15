@@ -1,4 +1,4 @@
-# family-cash
+# Infiny-cashdb
 
 Budget Manager and Expense Tracker app.
 
